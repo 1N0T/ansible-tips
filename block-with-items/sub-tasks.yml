@@ -1,0 +1,7 @@
+- name: Tarea 1
+  debug:
+    msg: "Tarea 1 {{ item }} ejecutada"
+
+- name: Tarea 2
+  debug:
+    msg: "Tarea 2 {{ item }} ejecutada"
