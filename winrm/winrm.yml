@@ -1,0 +1,11 @@
+---
+- hosts: winserver
+  vars:
+    - ansible_ssh_user: "usuario@DOMINIO.NET"
+    - ansible_ssh_port: 5986
+    - ansible_connection: winrm
+    - ansible_winrm_server_cert_validation: ignore
+
+  tasks:
+    - name: Test uso WinRM
+      win_command: ipconfig

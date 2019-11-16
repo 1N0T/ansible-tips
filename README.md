@@ -10,3 +10,8 @@ Existe abundante documentación y ejemplos de uso de **ansible**, pero el propó
 
 * [Ejecutar un conjunto de tareas para una lista de elementos.](block-with-items/README.md)
 </details>
+<details>
+    <summary>Windows.</summary>
+
+* [Gestionar equipos windows usando WINRM.](winrm/README.md)
+</details>
