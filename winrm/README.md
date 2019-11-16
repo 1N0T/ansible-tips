@@ -1,10 +1,10 @@
 ![logo](https://raw.github.com/1N0T/images/master/global/1N0T.png)
 # Gestionar equipos windows usando WINRM.
 
-Existe abundante información para realizar todo tipo de tareas sobre servidores **Linux**, y aunque es frecuente encontrar reerencias a que es posible realizar lo propio sobre **Winodws**, lo habitual es que no se expliquen los detalles. Parece que, finalmente, el mecanismo de comunicación utilizado por anible, para comunicar con los equipos será **WinRM** (Windows Remote Management es) que permite la administración remota de equipos, utilizando peticiones **HTTP/S**.
+Existe abundante información para realizar todo tipo de tareas sobre servidores **Linux**, y aunque es frecuente encontrar reerencias a que es posible realizar lo propio sobre **Winodws**, lo habitual es que no se expliquen los detalles. Parece que, finalmente, el mecanismo de comunicación utilizado por anible, para comunicar con Windows será **WinRM** (Windows Remote Management) y que permite la administración remota de equipos, utilizando peticiones **HTTP/S**.
 
 ## WinRM. 
-El primer escollo a solucionar se que, por defecto, esta funcionalidad no viene habilitada en Windows, así que el primer requisito a cumplir, es que esté disponible en los equipos windows que queramos administrar. Afortunadamente, ya hay quien se ha preocupado de crear un script **PowerShell** que se encarga de todo el proceso. He dejado una copia de uno que a mi me ha funcionado [ConfigureRemotingForAnsible.ps1](ConfigureRemotingForAnsible.ps1).
+El primer escollo a solucionar es configurar adecuadamente esta funcionalidad en los equipos Windows. Afortunadamente, ya hay quien se ha preocupado de crear un script **PowerShell** que se encarga de todo el proceso. He dejado la copia de uno que a mi me ha funcionado [ConfigureRemotingForAnsible.ps1](ConfigureRemotingForAnsible.ps1).
 
 Debemos copiarlo en el equipo windows, y ejecutar (como administrador) algo parecido a lo siguiente:
 ```bat
