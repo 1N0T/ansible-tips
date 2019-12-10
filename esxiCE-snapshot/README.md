@@ -44,24 +44,24 @@ Así que, para a realizar la tarea, vamos a crear un pequeño script en python, 
       admin_password: Contraseña
 
     script_content: |
-        #!/usr/bin/env python
+      #!/usr/bin/env python
 
-        from pysphere import VIServer 
-        import ssl
+      from pysphere import VIServer 
+      import ssl
 
-        # Permitimos el uso de certificados autofirmados.
-        ssl._create_default_https_context = ssl._create_unverified_context
+      # Permitimos el uso de certificados autofirmados.
+      ssl._create_default_https_context = ssl._create_unverified_context
 
-        server = VIServer()
-        server.connect("{{ ESXi.host }}", "{{ ESXi.admin_user }}", "{{ mi_password }}")
-        vm = server.get_vm_by_name("{{ ESXi.vm_name }}")
+      server = VIServer()
+      server.connect("{{ ESXi.host }}", "{{ ESXi.admin_user }}", "{{ mi_password }}")
+      vm = server.get_vm_by_name("{{ ESXi.vm_name }}")
 
-        # La creación del snapshot es síncrona, por lo que no continuará hasta que finalice.
-        # Si quisiéramos que fuera aiíncrona, tendráimos que hacer algo así.
-        #   task = vm.create_snapshot("mysnapshot", sync_run=False)
-        vm.create_snapshot("Test snapshot", description="Created by pysphere", memory=False, quiesce=False)
-        server.disconnect() 
-        quit(0)
+      # La creación del snapshot es síncrona, por lo que no continuará hasta que finalice.
+      # Si quisiéramos que fuera aiíncrona, tendráimos que hacer algo así.
+      #   task = vm.create_snapshot("mysnapshot", sync_run=False)
+      vm.create_snapshot("Test snapshot", description="Created by pysphere", memory=False, quiesce=False)
+      server.disconnect() 
+      quit(0)
     
     vars_prompt:
       - name: "mi_password"
