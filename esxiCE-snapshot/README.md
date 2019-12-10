@@ -1,7 +1,7 @@
 ![logo](https://raw.github.com/1N0T/images/master/global/1N0T.png)
 # Realizar un snapshot en ESXi Community Edition..
 
-En las versiones actuales de ansible, para realizar un snapshot de VM vmware, se debería utilizar el módulo **vmware_guest_snapshot** que requiere la instalación de ```pip install PyVmomi``` que, al parecer, hace uso del API expuesta por vmware. El problema es que, en el caso de la versión Community Edition (la gratuita), sólo está expuesta en modo lectura, lo que no permite realizar ninguna modificación de las VM. Así que, el código siguiente, funcionaría en un ESXi licenciado, pero no en la versión Community Edition.
+En las versiones actuales de ansible, para realizar un snapshot de una VM vmware, se debería utilizar el módulo **vmware_guest_snapshot** que requiere la instalación de ```pip install PyVmomi``` y que, al parecer, hace uso del API expuesta por vmware. El problema es que, en el caso de la versión Community Edition (la gratuita), la API sólo está expuesta en modo lectura, lo que no permite realizar ninguna modificación de las VM. Así que, el código siguiente, funcionaría en un ESXi licenciado, pero no en la versión Community Edition.
 
 ``` yaml
 ---
@@ -21,9 +21,9 @@ En las versiones actuales de ansible, para realizar un snapshot de VM vmware, se
       delegate_to: localhost
 
 ```
-Una alternativa sería utilipyspherezar el módulo anterior **vsphere_guest**, que requiere la instalación de ```pip install pysphere``` que no utiliza el API de vmware. Sólo hay dos pegas, la primera es que este módulo desaparecerá en la versión 2.9 de ansible. La otra, es que no tiene disponible la funcionalidad de snapshot, aunque existe alguna propuesta de implementación en GitHub, pero que no ha sido incorporada al módulo oficial ya que está deprecated.
+Una alternativa sería utilizar el módulo anterior, **vsphere_guest**, que requiere la instalación de ```pip install pysphere``` y que no utiliza el API de vmware, aunque hay un par de pegas. La primera es que este módulo desaparecerá en la versión 2.9 de ansible. La otra, es que no tiene disponible la funcionalidad de snapshot. Existe alguna propuesta de implementación en GitHub, pero que no ha sido incorporada al módulo oficial ya que está deprecated.
 
-Así, que vamos a realizar la tarea con un pequeño script en python.
+Así que, para a realizar la tarea, vamos a crear un pequeño script en python, que tendría el siguiente aspecto.
 
 ``` yaml
 # Requiere de la instalación del siguiente módulo
