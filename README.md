@@ -15,3 +15,8 @@ Existe abundante documentación y ejemplos de uso de **ansible**, pero el propó
 
 * [Gestionar equipos windows usando WINRM.](winrm/README.md)
 </details>
+<details>
+    <summary>vmware.</summary>
+
+* [Realizar un snapshot en ESXi Community Edition.](esxiCE-snapshot/README.md)
+</details>
