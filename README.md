@@ -10,6 +10,7 @@ Existe abundante documentación y ejemplos de uso de **ansible**, pero el propó
 
 * [Ejecutar un conjunto de tareas para una lista de elementos.](block-with-items/README.md)
 * [Recuperar fecha y calcular duraciones.](date-and-duration/README.md)
+* [Modificar variables.](modify-vars/README.md)
 </details>
 <details>
     <summary>Windows.</summary>
