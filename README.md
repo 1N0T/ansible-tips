@@ -22,3 +22,8 @@ Existe abundante documentación y ejemplos de uso de **ansible**, pero el propó
 
 * [Realizar un snapshot en ESXi Community Edition.](esxiCE-snapshot/README.md)
 </details>
+<details>
+    <summary>OCI (Oracle Cloud Infrastructure).</summary>
+
+* [Instalación.](oci/installation/README.md)
+</details>
