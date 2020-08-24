@@ -1,12 +1,12 @@
 ![logo](https://raw.github.com/1N0T/images/master/global/1N0T.png)
 # Instalación OCI (Oracle Cloud Infrastructure).
-Aunque al tratarse de uno de los úlltimos en llegar, no están entre los proveedores de servicios cloud más populares, pero lo cierto es que durante el último año, mi impresión particular ha mejorado y ya parece una plataforma más madura.
+Aunque, al tratarse de uno de los úlltimos en llegar, no están entre los proveedores de servicios cloud más populares; pero lo cierto es que durante el último año, mi impresión particular ha mejorado y ya me parece una plataforma más madura.
 
-Estamos aquí porque una de las opciones disponibles es la administración de lso componentes principales utilizando **ansible**. Para ello, se requiere instalar previamente el **cliente oci** y el **SDK de python**.
+Estamos aquí, porque una de las opciones disponibles es la administración, de los componentes principales, utilizando **ansible**. Para ello, se requiere instalar previamente el **cliente oci** y el **SDK de python**.
 
-El procedimiento está perfectamente explicado en la propia documentación de **OCI** pero, como está principalmente orientado a servidores linux de la familia **redhat** y, me encontre alguna dificultad inicial al realizarla sobre una distribución de la familia **Debian** (Ubuntu 18.04 en concreto), por lo que procedo a detallar los pasos que he seguido para obtener un resultado satisfactorio.
+El procedimiento, está perfectamente explicado en la propia documentación de **OCI** pero, como está principalmente orientado a servidores linux de la familia **redhat** y, me encontré alguna dificultad inicial al realizarla sobre una distribución de la familia **Debian** (Ubuntu 18.04 en concreto), he creido conveniente compartir los pasos que he seguido para obtener un resultado satisfactorio.
 
-Lo primero que haremos, para evitar interferencias con nuestra instalación actual, es crear un **entorno virtual de python**, para realizar toda la instalación dentro del mismo.
+Lo primero que haremos, para evitar interferencias con nuestra instalación actual, es crear un **entorno virtual de python**, dentro del cual haremos toda la instalación de todos los elementos.
 ```bash
 mkdir ansibleOCI
 cd ansibleOCI/
@@ -15,15 +15,13 @@ source venv/bin/activate
 pip3 install oci 
 pip3 install oci-cli 
 ```
-A continusación, deberemos configurar el entorno para que disponga de todos los datos requeridos para la conexión con nuestro **tenant** de **oci**.
+A continuación, deberemos configurar el entorno para que disponga de todos los datos requeridos para la conexión con nuestro **tenant** de **oci**.
 
 Antes de empezar, necesitamos recuperar cierta información que vamos a necesitar durante el proceso.
 
-Naturalmente, debemos disponer de una **cuenta oci** con un **usuario** que disponga de los permisos necesarios para realizar las acciones que nos interesa. Con éste, nos logaremos a nuestro **tenant** y recuperaremos el **tenant OCID** (menú **Administration > Tenancy Details**).
+Naturalmente, debemos disponer de una **cuenta oci** con un **usuario** que disponga de los permisos necesarios para realizar las acciones que nos interesa. Con éste, nos logaremos a nuestro **tenant** y recuperaremos el **tenant OCID** (menú **Administration > Tenancy Details**). También necesitaremos el **OCID del usuario** (menú **Identity > Users > User Details**) y conocer al región del mismo (eu-frankfurt-1 en mi caso).
 
-También necesitaremos el **OCID del usuario** (menú **Identity > Users > User Details**).
-
-Una vez recopilados estos datos, podemos proceder a configurar el entorno, ejecutando el siguiente comando e informando los datos solicitados.
+Una vez recopilados estos datos, podemos proceder a configurar el entorno ejecutando el siguiente comando e informando los datos solicitados.
 ```bash
 oci setup config
 ```
@@ -69,9 +67,9 @@ Config written to /home/miusuario/ansibleOCI/configuracion/config
 
 
 ```
-Los pasos anterirores, generarán un par de claves (pública y privada) y, un fichero de configuración de la conexión, en el directorio que hayamos especificado. Si hemos dejado las ubicaciones por defecto, ambos se situarán dentro de **$HOME/.oci/** que es donde lo esperan encontrar, tando el **Python SDK** como los **módulos ansible**. Pero para completar el ejemplo, he modificado la ubicación por defecto.
+Los pasos anterirores, generarán un par de claves (pública y privada) y, un fichero de configuración de la conexión, en el directorio que hayamos especificado. Si hemos dejado las ubicaciones por defecto, ambos se situarán dentro de **$HOME/.oci/**, que es donde lo esperan encontrar, tanto el **Python SDK** como los **módulos ansible**. Pero, para completar el ejemplo, he modificado la ubicación por defecto. De esta forma podremos ver las implicaciones que tienene.
 
-Antes de poder probar la conexión, tenemos que **subir la clave pública** al perfil del usuario (menú **Identity > Users > User Details > API Keys**).
+Antes de poder probar la conexión, tenemos que **subir la clave pública** que hemos generado anteriormrnte al perfil del usuario (menú **Identity > Users > User Details > API Keys**).
 
 Si hemos mantenido el destino por defecto, podríamos probar la configuración de la conexión con el siguiente comando.
 ```bash
@@ -101,6 +99,6 @@ git clone https://github.com/oracle/oci-ansible-modules.git
 cd oci-ansible-modules/
 python3 ./install.py
 ```
-A partir de este momento, ya podríamos empezar a utilizar **ansible** para gestionar nuestra **infraestructura oci**.
+A partir de este momento, ya deberíamos poder utilizar **ansible** para gestionar nuestra **infraestructura oci**.
 
 
