@@ -26,4 +26,5 @@ Existe abundante documentación y ejemplos de uso de **ansible**, pero el propó
     <summary>OCI (Oracle Cloud Infrastructure).</summary>
 
 * [Instalación.](oci/installation/README.md)
+* [Creación y borrado de compartimentos.](oci/compartment/README.md)
 </details>
