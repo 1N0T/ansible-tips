@@ -28,7 +28,7 @@ Si hemos modificado la ubicación por defecto, del fichero de configuración de 
         state: present
       register: resultado
 
-    - name: "Resultado creación {{ resultado.compartment.nombre }}"
+    - name: "Resultado creación {{ compartimento.nombre }}"
       debug:
         var: resultado
 
@@ -44,7 +44,7 @@ Si hemos modificado la ubicación por defecto, del fichero de configuración de 
         var: resultado_borrado
 ```
 Después de la ejecución, obtendremos una salida similar a la que mostramos a continuación.
-```json
+```
 PLAY [localhost] *********************************************************************************************
 
 TASK [Gathering Facts] **********************************************************************
@@ -53,7 +53,7 @@ ok: [localhost]
 TASK [Creación de un compartimento compartimento-ansible dentro del raiz] **********************************************************************
 changed: [localhost]
 
-TASK [Resultado creación {{ resultado.compartment.nombre }}] **********************************************************************
+TASK [Resultado creación compartimento-ansible] *************************************************************************
 ok: [localhost] => {
     "resultado": {
         "changed": true,
