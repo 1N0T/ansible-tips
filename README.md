@@ -11,7 +11,7 @@ Existe abundante documentación y ejemplos de uso de **ansible**, pero el propó
 * [Ejecutar un conjunto de tareas para una lista de elementos.](block-with-items/README.md)
 * [Recuperar fecha y calcular duraciones.](date-and-duration/README.md)
 * [Modificar variables.](modify-vars/README.md)
-* [Encriptar valor de variables.](encript-variable-value/README.md)
+* [Encriptar valor de variables.](encrypt-variable-value/README.md)
 </details>
 <details>
     <summary>Windows.</summary>
