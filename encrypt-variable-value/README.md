@@ -96,7 +96,7 @@ ok: [localhost]
 
 TASK [Mostramos valor desencriptado] **************************************************
 fatal: [localhost]: FAILED! => {"msg": "An unhandled exception occurred while templating 'Mi contraseña secreta es: [{{ mi_password_secreto }}]'. Error was a <class 'ansible.parsing.vault.AnsibleVaultError'>, original message: Decryption failed (no vault secrets were found that could decrypt)"}
-	to retry, use: --limit @/home/tsolis/sources/ansible/ansible-vault/playbook.retry
+	to retry, use: --limit @/home/usuario/sources/ansible/ansible-vault/playbook.retry
 
 PLAY RECAP ****************************************************************************
 localhost                  : ok=1    changed=0    unreachable=0    failed=1   
