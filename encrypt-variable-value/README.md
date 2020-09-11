@@ -66,7 +66,7 @@ ansible-playbook playbook.yml --ask-vault-pass
 ```
 
 Tras introducir la contraseña que nos solicita, que es la utilizada para la encriptación, obtendremos la siguiente salida:
-```json
+```
 Vault password: 
 
 PLAY [localhost] **********************************************************
